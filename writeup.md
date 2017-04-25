@@ -170,7 +170,7 @@ These signs were orriginally in high quality images with some background scenery
  * 2 : The second image is one of the more unique images, as it has a triangular border and a vertical solid line in the center.
  * 3 : The third image shares a rectagonal shape with many other signs, and has a series of diagonal lines in its middle which may trigger false activations.
  * 4 : The fourth image might be difficult to classify due to the shape of the 6 in the image. The 6 has a diagonal line on top and a circle on the bottom. These edges are shared by many many other signs, and could trigger a false activation of neurons during classification.
- * 5 : The final image might be difficult to classify due to the lack of definitive boarder around the edges once the image that occured during processing. Due to the interpolation of the image to reduce size, the clear octogonal edge pattern of the sign has bled into a somewhat circular pattern. additionally, the grayscaling of the image would further reduce distinguishing patters of White Lettering on Red Sign.
+ * 5 : The final image might be difficult to classify due to the lack of definitive boarder around the edges once the image that occured during processing. Due to the interpolation of the image to reduce size, the clear octogonal edge pattern of the sign has bled into a somewhat circular pattern. The grayscaling however appears to have helped add a larger distinction in the boarder..
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -199,73 +199,72 @@ The code for making predictions on my final model is located in the 11th cell of
 The probabilities for each of the signs ranged vastly, with the highest probability reaching 59%, and the lowest classified certainty being at 27.3%. The largest gap between a singles sign's first and second softmax probabilities was 19%, while the smallest was ~3.5%.
 
 ##### Image 1 - 70 km/h sign
-* For the first image, the model achieves a correct classifcation, however it is not very certain, with a margin of only 4% between the first and second softmax probabilities.
+* For the first image, the model achieves an incorrect classifcation with a certainty of 83%. The second closest class is the correct class. Speed limit signs appear to give the model difficulty in differentiating between the seperate speeds. This is likely due to many neurons devoting to macro features, such as sign shape and the shape of larger images on the sign.
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .273         			| 70 km/h   									| 
-| .235     				| Double Curve									|
-| .189					| Wild Animal Crossing							|
-| .182	      			| Road narrows on the right		 				|
-| .175				    | General Caution      							|
+| .828         			| 100 km/h   									| 
+| .172     				| 70 km/h									|
+| .~0					| Turn left ahead							|
+| .~0	      			| 120 km/h              		 				|
+| .~0				    | 30 km/h      							|
 
 ![](Softmax_graphs/70km.png "70km")
 
 
 ##### Image 2 - General Caution Sign
-*The second image had the highest certainty of the test group, with a softmax probability of 59%, and had a correct classification.
+* This sign had a correct classification and very high certainty, 100.00 in fact. 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .59         			| General Caution   							| 
-| .403     				| Road narrows on the right 					|
-| .402					| Double curve									|
-| .388	      			| Traffic Signals					 			|
-| .367				    | Bicycles crossing      						|
+| 1.0         			| General Caution   							| 
+| .3 e-12   			| Traffic Signals            					|
+| .3 e-14  			| Pedestrians									|
+| . e-16     			| Road narrows on the right			 			|
+| . e-19			    | Right of way at the next intersection  		|
 
 ![](Softmax_graphs/General_Caution.png "General Caution")
 
 
 ##### Image 3 - Priority Road sign
-* The third sign had a correct classification, and was resonably certain of it's prediction compared to other classifications.
+* The third sign had a correct classification, and was resonably certainty of .999
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .394         			| Priority Road   								| 
-| .226     				| Roundabout Mandatory							|
-| .197					| Right-of-way at the next intersection			|
-| .196	      			| Keep right             		 				|
-| .191				    | 50 km/h           							|
+| .999         			| Priority Road   								| 
+| .25 e-5     			| Roundabout Mandatory							|
+| .19 e-7				| Ahead only                        			|
+| ~0 	      			| 60 km/h               		 				|
+| ~0				    | Keep Right           							|
 
 ![](Softmax_graphs/Priority_Road.png "Priority Road")
 
 
 ##### Image 4 - 60 km/h sign
-* The fourth sign had an incorrect classification with a small spread within the top 5 probabilities. The third probability of 24.1% was the correct classification for this sign, though the margin of certainty was very close to that of the 1st sign (70 km/h).
-*The prediction however was rather inclined to believe that the sign was a speed limit sign. For this example, a technique other than one hot encoding may be advantageous.  
+* The fourth sign had an incorrect classification, though the top 5 probabilities were all speed related. The curves in the 6 of the sign must look very similar to an 8 for the weights of the model. It's highest certainty was 95%
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .284         			| Roundabout Mandatory   						| 
-| .249     				| 30 km/h						     			|
-| .242					| 60 km/h						            	|
-| .219	      			| End of 80 km/h		 		          		|
-| .207				    | 20 km/h      					         		|
+| .945         			| 80 km/h   						| 
+| .015     				| 100 km/h 						     			|
+| .013					| 30 km/h						            	|
+| .012	      			| 120 km/h		 		          		|
+| .005				    | 20 km/h      					         		|
 
 ![](Softmax_graphs/60km.png "60km")
 
 
 ##### Image 5 - Stop Sign
-* The final sign had an incorrect classification and a relatively high certainty of 42.8% for the first softmax probability, The second probability coming in at 30.5% and was the correct classification for the sign. This 1st-2nd gap of ~12% points suggests that the preprocessing performed on the image individual image might have destroyed some of the key indicators for that particular image. 
+* The final sign had a correct classification, however it's certainy was relatively low at 79%. This is likely due to the preprocessing performed on the image, which might have destroyed some of the key indicators for that particular class. 
 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .428         			| Go straight or right   						| 
-| .304     				| Stop				        					|
-| .303					| No Entry			             				|
-| .294	      			| Keep right		             				|
-| .28				    | Priority road      							|
+| .794         			| Stop   						| 
+| .206     				| Priority Road		        					|
+| .32 e-5				| Keep right		             				|
+| .19 e-5	      		| Turn right ahead		             				|
+| ~0    			    | Ahead only      							|
 
 ![](Softmax_graphs/Stop.png "Stop")
 
@@ -273,7 +272,7 @@ The probabilities for each of the signs ranged vastly, with the highest probabil
 
 ##### Softmax Summary:
 
-The softmax probabilities revealed that the 40% incorrect answers had the correct answer within the top 3 probabilities.  The highest probability for the 70km sign was 27%, which was correct, though the second most likely answer follwed very closely with 23.5%. The highest certainty achieved was 59% for the General Caution Sign with the second softmax probability for that sign being 40%, which is also the largest gap (19%) between first and second softmax probabilities. The second highest gap and second highest probability for a correct answer was for the priority road sign, achieving 39.4% first softmax probability and a second probability of 22.6% for a gap of ~17%.
+The Softmax probabilities were rather certain of their Estimations, though the accuracy of the speed limit signs was not high.
 
 
 

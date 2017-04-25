@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Traffic_Sign_Extra_play</title>
+<title>Traffic_Sign_Final</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load pickled data</span>
@@ -11849,7 +11849,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Replace each question mark with the appropriate value. </span>
@@ -11868,7 +11868,8 @@ div#notebook {
 <span class="n">image_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="c1"># TODO: How many unique classes/labels there are in the dataset.</span>
-<span class="n">n_classes</span> <span class="o">=</span> <span class="mi">43</span>
+
+<span class="n">n_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_valid</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of training examples =&quot;</span><span class="p">,</span> <span class="n">n_train</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of testing examples =&quot;</span><span class="p">,</span> <span class="n">n_test</span><span class="p">)</span>
@@ -11921,7 +11922,7 @@ Number of classes = 43
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Data exploration visualization code goes here.</span>
@@ -11941,7 +11942,6 @@ Number of classes = 43
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-<span class="c1">#print (X_train[index])</span>
 </pre></div>
 
 </div>
@@ -11954,7 +11954,7 @@ Number of classes = 43
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>13
+<pre>17
 </pre>
 </div>
 </div>
@@ -11964,85 +11964,77 @@ Number of classes = 43
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
-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
-SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
+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
 "
 >
 </div>
@@ -12097,7 +12089,7 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Preprocess the data here. It is required to normalize the data. Other preprocessing steps could include </span>
@@ -12112,7 +12104,7 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># affine Image Augmentation Fucntion Block</span>
@@ -12187,7 +12179,7 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Normalize number of images from each catagory using affined images</span>
@@ -12225,38 +12217,7 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">eX_train</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ey_train</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>196673
-196673
-34799
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Shuffle our data</span>
@@ -12299,11 +12260,6 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 <span class="n">tempList</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tempList</span><span class="p">)</span>
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">tempList</span>    
     
-
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X_Train_Shape&quot;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X_Validation_Shape&quot;</span><span class="p">,</span> <span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X_Test_Shape&quot;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Okay&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12318,16 +12274,6 @@ SP8DnF6HA8CcNiYAAAAASUVORK5CYII=
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype uint8 was converted to float64 by the scale function.
   warnings.warn(msg, _DataConversionWarning)
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>X_Train_Shape (196673, 32, 32, 1)
-X_Validation_Shape (4410, 32, 32, 1)
-X_Test_Shape (12630, 32, 32, 1)
-Okay
 </pre>
 </div>
 </div>
@@ -12373,15 +12319,7 @@ Okay
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.contrib.layers</span> <span class="k">import</span> <span class="n">flatten</span>
 
-<span class="k">def</span> <span class="nf">LeNet</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    
-    <span class="c1">#Same</span>
-    <span class="c1">#out_height = ceil(float(in_height) / float(strides[1]))</span>
-    <span class="c1">#out_width  = ceil(float(in_width) / float(strides[2]))   </span>
-    <span class="c1">#Valid</span>
-    <span class="c1">#out_height = ceil(float(in_height - filter_height + 1) / float(strides[1]))</span>
-    <span class="c1">#out_width  = ceil(float(in_width - filter_width + 1) / float(strides[2]))</span>
-    
+<span class="k">def</span> <span class="nf">LeNet</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
     
     <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -12414,55 +12352,6 @@ Okay
     <span class="n">fc3_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">43</span><span class="p">))</span>
     <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span> <span class="n">fc3_W</span><span class="p">)</span> <span class="o">+</span> <span class="n">fc3_b</span>
     
-    
-    <span class="sd">&#39;&#39;&#39;   </span>
-<span class="sd">    #Convolution Layer 1  Input: 32x32x3 Output: 28x28x6</span>
-<span class="sd">    conv1_W = tf.Variable(tf.truncated_normal(shape=(5, 5, 1, 6), mean = mu, stddev = sigma))</span>
-<span class="sd">    conv1_b = tf.Variable(tf.zeros(6))</span>
-<span class="sd">    conv1 = tf.nn.conv2d(x, conv1_W, strides=[1, 1, 1, 1], padding = &#39;VALID&#39;) + conv1_b</span>
-<span class="sd">    </span>
-<span class="sd">    #Activation</span>
-<span class="sd">    conv1 = tf.nn.relu(conv1)</span>
-<span class="sd">    </span>
-<span class="sd">    #Pooling Input: 28x28x6 Output: 14x14x6</span>
-<span class="sd">    conv1 = tf.nn.avg_pool(conv1, ksize=[1,2,2,1], strides=[1,2,2,1], padding=&#39;VALID&#39;)</span>
-<span class="sd">    #fc1 = tf.nn.dropout(fc1, dropout)</span>
-<span class="sd">    </span>
-<span class="sd">    #Convolution Layer 2 Input: 14x14x6 Output: 10x10x16</span>
-<span class="sd">    conv2_W = tf.Variable(tf.truncated_normal(shape=(5, 5, 6, 16), mean = mu, stddev = sigma))</span>
-<span class="sd">    conv2_b = tf.Variable(tf.zeros(16))</span>
-<span class="sd">    conv2 = tf.nn.conv2d(conv1, conv2_W, strides=[1,1,1,1], padding=&#39;VALID&#39;) + conv2_b</span>
-<span class="sd">    </span>
-<span class="sd">    #Activation</span>
-<span class="sd">    conv2 = tf.nn.relu(conv2)</span>
-<span class="sd">    </span>
-<span class="sd">    #Pooling Input: 16x16x108 Output: 5x5x16</span>
-<span class="sd">    conv2 = tf.nn.avg_pool(conv2, ksize=[1,2,2,1], strides=[1,2,2,1], padding=&#39;VALID&#39;)</span>
-<span class="sd">    </span>
-<span class="sd">    #Flatten Input: 8x8x16 Output: 400</span>
-<span class="sd">    fc0 = flatten(conv2)</span>
-<span class="sd">    </span>
-<span class="sd">    #Fully Connected Layer 1 Input: 1280 Output: 400</span>
-<span class="sd">    fc1_W = tf.Variable(tf.truncated_normal(shape=(400, 120), mean = mu, stddev = sigma))</span>
-<span class="sd">    fc1_b = tf.Variable(tf.zeros(120))</span>
-<span class="sd">    fc1 = tf.matmul(fc0, fc1_W) + fc1_b</span>
-<span class="sd">    </span>
-<span class="sd">    #Activation</span>
-<span class="sd">    fc1 = tf.nn.relu(fc1)</span>
-<span class="sd">    </span>
-<span class="sd">    #Fully Connected Layer 2 Input: 400 Output: 120</span>
-<span class="sd">    fc2_W = tf.Variable(tf.truncated_normal(shape = (120, 84), mean = mu, stddev = sigma))</span>
-<span class="sd">    fc2_b = tf.Variable(tf.zeros(84))</span>
-<span class="sd">    fc2 = tf.matmul(fc1, fc2_W) + fc2_b</span>
-<span class="sd">    </span>
-<span class="sd">    #Activation</span>
-<span class="sd">    fc2 = tf.nn.relu(fc2)</span>
-<span class="sd">    </span>
-<span class="sd">    #Fully Connected Layer 3 Input: 120 Output 43</span>
-<span class="sd">    fc3_W = tf.Variable(tf.truncated_normal(shape = (84, 43), mean = mu, stddev = sigma))</span>
-<span class="sd">    fc3_b = tf.Variable(tf.zeros(43))</span>
-<span class="sd">    logits = tf.matmul(fc2, fc3_W) + fc3_b</span>
-<span class="sd">    &#39;&#39;&#39;</span>  
     <span class="k">return</span> <span class="n">logits</span>
 </pre></div>
 
@@ -12546,10 +12435,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Trigger the tensorflow opperations which do all the magic</span>
-
-
-<span class="c1">#learning_rate = 0.001</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Trigger the tensorflow opperation pipeline</span>
 
 <span class="n">logits</span> <span class="o">=</span> <span class="n">LeNet</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">one_hot_y</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
@@ -12683,10 +12569,12 @@ Model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">time</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     
     <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
@@ -12720,11 +12608,11 @@ Model Saved
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Test Image Accuracy = 90.9% 
-Testing time: 11.654 s
+Testing time: 11.939 s
 Test Image Accuracy = 94.3% 
-Validation set time: 3.966 s
-Test Image Accuracy = 98.3% 
-Training set testing time: 175.697 s
+Validation set time: 4.065 s
+Test Image Accuracy = 88.6% 
+Training set testing time: 179.445 s
 </pre>
 </div>
 </div>
@@ -12756,7 +12644,7 @@ Training set testing time: 175.697 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Load the images and plot them here.</span>
@@ -12779,11 +12667,7 @@ Training set testing time: 175.697 s
 <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">60</span><span class="p">:</span><span class="mi">310</span><span class="p">,</span> <span class="mi">400</span><span class="p">:</span><span class="mi">675</span><span class="p">]</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">))</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>    
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This image is: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> 
-        <span class="s1">&#39;with dimensions:&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
-   
+<span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>       
 <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
     
@@ -12792,8 +12676,6 @@ Training set testing time: 175.697 s
 <span class="n">image</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">))</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This image is: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> 
-    <span class="s1">&#39;with dimensions:&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
 <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
 
@@ -12802,8 +12684,6 @@ Training set testing time: 175.697 s
 <span class="n">image</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">))</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This image is: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> 
-    <span class="s1">&#39;with dimensions:&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
 <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
 
@@ -12813,8 +12693,6 @@ Training set testing time: 175.697 s
 <span class="n">image</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">))</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This image is: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> 
-    <span class="s1">&#39;with dimensions:&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
 <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
 
@@ -12824,41 +12702,10 @@ Training set testing time: 175.697 s
 <span class="n">image</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">))</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This image is: &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> 
-    <span class="s1">&#39;with dimensions:&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
 <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_list</span><span class="p">))</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 1)
-This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 1)
-This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 1)
-This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 1)
-This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 1)
-5
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype uint8 was converted to float64 by the scale function.
-  warnings.warn(msg, _DataConversionWarning)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12874,7 +12721,7 @@ This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Run the predictions here and use the model to output the prediction for each image.</span>
@@ -12886,16 +12733,9 @@ This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
-    <span class="c1">#print(sess.run(logits, feed_dict={x: image_list, y=[1,1,1,1,1]}))</span>
-    <span class="c1">#print(sess.run(cross_entropy, feed_dict={x: image_list, y:[1,,1,1,1]}))</span>
     <span class="n">stuff</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">image_list</span><span class="p">})</span>
     <span class="nb">list</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">stuff</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">image_list</span><span class="p">}))</span>
-    
-    <span class="c1">#print(list)</span>
-    <span class="c1">#print(sess.run(predict(logits, feed_dict={x: image_list})))</span>
-    <span class="c1">#print(sess.run(cross_entropy, feed_dict={x: image_list} ))</span>
-<span class="c1">#print (image_list[0].shape)</span>
 </pre></div>
 
 </div>
@@ -12928,7 +12768,7 @@ This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Calculate the accuracy for these 5 new images. </span>
@@ -12942,7 +12782,7 @@ This image is:  &lt;class &#39;numpy.ndarray&#39;&gt; with dimensions: (32, 32, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">correct_images_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
@@ -13021,7 +12861,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -13029,9 +12869,23 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
-    <span class="n">stuff</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">image_list</span><span class="p">})</span>    
-    <span class="n">new_stuff</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">stuff</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">new_stuff</span><span class="p">)</span>
+    <span class="n">stuff</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">image_list</span><span class="p">})</span>
+    <span class="n">softmax</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span>
+    <span class="c1">#new_stuff = sess.run(tf.nn.top_k(tf.constant(softmax), k=5))</span>
+    <span class="n">new_stuff</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="n">softmax</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">new_stuff</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13044,16 +12898,16 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>TopKV2(values=array([[ 53.6365242 ,  52.06446838,  43.67012405,  31.14103889,
-         31.09947968],
-       [ 69.37769318,  42.28614044,  38.15387726,  33.80753708,
-         26.47029686],
-       [ 45.43723297,  32.55052185,  29.99285126,  21.87037849,
-         20.96982193],
-       [ 27.8733654 ,  23.71362495,  23.58715248,  23.50997925,
-         22.61981392],
-       [ 33.63273621,  32.28240585,  23.52013588,  23.01548767,
-         20.79191971]], dtype=float32), indices=array([[ 7,  4, 34,  8,  1],
+<pre>TopKV2(values=array([[  8.28044295e-01,   1.71916842e-01,   3.88777371e-05,
+          1.40730566e-10,   1.35001774e-10],
+       [  1.00000000e+00,   1.71509486e-12,   2.75213066e-14,
+          3.56514738e-16,   2.32036001e-19],
+       [  9.99997258e-01,   2.53146118e-06,   1.96150324e-07,
+          5.82162166e-11,   2.36557770e-11],
+       [  9.46981013e-01,   1.47838974e-02,   1.30275469e-02,
+          1.20599847e-02,   4.95168287e-03],
+       [  7.94140756e-01,   2.05805272e-01,   3.22144697e-05,
+          1.94484528e-05,   2.10475582e-06]], dtype=float32), indices=array([[ 7,  4, 34,  8,  1],
        [18, 26, 27, 24, 11],
        [12, 40, 35,  3, 38],
        [ 5,  7,  1,  8,  0],
@@ -13087,114 +12941,6 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<h2 id="Step-4-(Optional):-Visualize-the-Neural-Network's-State-with-Test-Images">Step 4 (Optional): Visualize the Neural Network's State with Test Images<a class="anchor-link" href="#Step-4-(Optional):-Visualize-the-Neural-Network's-State-with-Test-Images">&#182;</a></h2><p>This Section is not required to complete but acts as an additional excersise for understaning the output of a neural network's weights. While neural networks can be a great learning device they are often referred to as a black box. We can understand what the weights of a neural network look like better by plotting their feature maps. After successfully training your neural network you can see what it's feature maps look like by plotting the output of the network's weight layers in response to a test stimuli image. From these plotted feature maps, it's possible to see what characteristics of an image the network finds interesting. For a sign, maybe the inner network feature maps react with high activation to the sign's boundary outline or to the contrast in the sign's painted symbol.</p>
-<p>Provided for you below is the function code that allows you to get the visualization output of any tensorflow weight layer you want. The inputs to the function should be a stimuli image, one used during training or a new one you provided, and then the tensorflow variable name that represents the layer's state during the training process, for instance if you wanted to see what the <a href="https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/601ae704-1035-4287-8b11-e2c2716217ad/concepts/d4aca031-508f-4e0b-b493-e7b706120f81">LeNet lab's</a> feature maps looked like for it's second convolutional layer you could enter conv2 as the tf_activation variable.</p>
-<p>For an example of what feature map outputs look like, check out NVIDIA's results in their paper <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/">End-to-End Deep Learning for Self-Driving Cars</a> in the section Visualization of internal CNN State. NVIDIA was able to show that their network's inner weights had high activations to road boundary lines by comparing feature maps from an image with a clear path to one without. Try experimenting with a similar test to show that your trained network's weights are looking for interesting features, whether it's looking at differences in feature maps from images with or without a sign, or even what feature maps look like in a trained network vs a completely untrained one on the same sign image.</p>
-<p><figure>
- <img src="visualize_cnn.png" width="380" alt="Combined Image" />
- <figcaption>
- <p></p> 
- <p style="text-align: center;"> Your output should look something like this (above)</p> 
- </figcaption>
-</figure>
- <p></p></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="c1">### Visualize your network&#39;s feature maps here.</span>
-<span class="c1">### Feel free to use as many code cells as needed.</span>
-
-<span class="c1"># image_input: the test image being fed into the network to produce the feature maps</span>
-<span class="c1"># tf_activation: should be a tf variable name used during your training procedure that represents the calculated state of a specific weight layer</span>
-<span class="c1"># activation_min/max: can be used to view the activation contrast in more detail, by default matplot sets min and max to the actual min and max values of the output</span>
-<span class="c1"># plt_num: used to plot out multiple different weight feature map sets on the same block, just extend the plt number for each new feature map entry</span>
-
-<span class="k">def</span> <span class="nf">outputFeatureMap</span><span class="p">(</span><span class="n">image_input</span><span class="p">,</span> <span class="n">tf_activation</span><span class="p">,</span> <span class="n">activation_min</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation_max</span><span class="o">=-</span><span class="mi">1</span> <span class="p">,</span><span class="n">plt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="c1"># Here make sure to preprocess your image_input in a way your network expects</span>
-    <span class="c1"># with size, normalization, ect if needed</span>
-    <span class="c1"># image_input =</span>
-    <span class="c1"># Note: x should be the same name as your network&#39;s tensorflow data placeholder variable</span>
-    <span class="c1"># If you get an error tf_activation is not defined it may be having trouble accessing the variable from inside a function</span>
-    <span class="n">activation</span> <span class="o">=</span> <span class="n">tf_activation</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">sess</span><span class="p">,</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span> <span class="p">:</span> <span class="n">image_input</span><span class="p">})</span>
-    <span class="n">featuremaps</span> <span class="o">=</span> <span class="n">activation</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">plt_num</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">featuremap</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">featuremaps</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span> <span class="n">featuremap</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sets the number of feature maps to show on each row and column</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;FeatureMap &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">featuremap</span><span class="p">))</span> <span class="c1"># displays the feature map number</span>
-        <span class="k">if</span> <span class="n">activation_min</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="n">activation_max</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span><span class="n">activation_min</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">activation_max</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">activation_max</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">activation_max</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">activation_min</span> <span class="o">!=-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">activation_min</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-
-
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-    <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
-    <span class="n">outputFeatureMap</span><span class="p">(</span><span class="n">image_list</span><span class="p">,</span> <span class="n">LeNet</span> <span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-21-2b827c29a983&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     32</span> <span class="ansi-green-fg">with</span> tf<span class="ansi-blue-fg">.</span>Session<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> sess<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     33</span>     saver<span class="ansi-blue-fg">.</span>restore<span class="ansi-blue-fg">(</span>sess<span class="ansi-blue-fg">,</span> tf<span class="ansi-blue-fg">.</span>train<span class="ansi-blue-fg">.</span>latest_checkpoint<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;.&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 34</span><span class="ansi-red-fg">     </span>outputFeatureMap<span class="ansi-blue-fg">(</span>image_list<span class="ansi-blue-fg">,</span> LeNet <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">&lt;ipython-input-21-2b827c29a983&gt;</span> in <span class="ansi-cyan-fg">outputFeatureMap</span><span class="ansi-blue-fg">(image_input, tf_activation, activation_min, activation_max, plt_num)</span>
-<span class="ansi-green-intense-fg ansi-bold">     14</span>     <span class="ansi-red-fg"># Note: x should be the same name as your network&#39;s tensorflow data placeholder variable</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span>     <span class="ansi-red-fg"># If you get an error tf_activation is not defined it may be having trouble accessing the variable from inside a function</span>
-<span class="ansi-green-fg">---&gt; 16</span><span class="ansi-red-fg">     </span>activation <span class="ansi-blue-fg">=</span> tf_activation<span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">(</span>session<span class="ansi-blue-fg">=</span>sess<span class="ansi-blue-fg">,</span>feed_dict<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span>x <span class="ansi-blue-fg">:</span> image_input<span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     17</span>     featuremaps <span class="ansi-blue-fg">=</span> activation<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">     18</span>     plt<span class="ansi-blue-fg">.</span>figure<span class="ansi-blue-fg">(</span>plt_num<span class="ansi-blue-fg">,</span> figsize<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">15</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">15</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">AttributeError</span>: &#39;function&#39; object has no attribute &#39;eval&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
